@@ -1,0 +1,14 @@
+html {
+	background-image: linear-gradient(bottom, rgb(240,240,240) 31%, rgb(219,219,219) 66%);
+	background-image: -o-linear-gradient(bottom, rgb(240,240,240) 31%, rgb(219,219,219) 66%);
+	background-image: -moz-linear-gradient(bottom, rgb(240,240,240) 31%, rgb(219,219,219) 66%);
+	background-image: -webkit-linear-gradient(bottom, rgb(240,240,240) 31%, rgb(219,219,219) 66%);
+	background-image: -ms-linear-gradient(bottom, rgb(240,240,240) 31%, rgb(219,219,219) 66%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.31, rgb(240,240,240)),
+		color-stop(0.66, rgb(219,219,219))
+	);
+}
