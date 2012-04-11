@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Defacto\LicenseBundle\Entity\Computer;
+use Defacto\LicenseBundle\Entity\User;
+use Defacto\LicenseBundle\Entity\License;
 
 class HomeController extends Controller
 {
@@ -17,13 +19,8 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-    	$computer = new Computer();
-    	$computer->setSerial('11-22-33-44');
-    	$computer->setOs('Mac OS X 10.7 Lion');
-
-    	$em = $this->getDoctrine()->getEntityManager();
-    	$em->persist($computer);
-    	$em->flush();
+    	$computerRepository = $this->getDoctrine()
+    		->getRepository('DefactoLicenseBundle:Computer');
 
         return $this->render('DefactoLicenseBundle:Templates:base.html.twig');
     }
