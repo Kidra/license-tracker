@@ -4,8 +4,11 @@ namespace Defacto\LicenseBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+use Defacto\LicenseBundle\Entity\Computer;
 
 class ComputersController extends Controller
 {
@@ -35,17 +38,35 @@ class ComputersController extends Controller
 	}
 
 	/**
-	 * @Route("/computers/edit")
+	 * @Route("/computers/edit", name="computers_edit")
 	 * @Route("/computers/edit/{id}")
 	 * @Template()
 	 */
-	public function editAction($id = null)
+	public function editAction(Request $request, $id = null)
 	{
 		$computerRepository = $this->getDoctrine()
     		->getRepository('DefactoLicenseBundle:Computer');
 
     	$computer = $computerRepository->find($id);
 
-		return $this->render('DefactoLicenseBundle:Computers:edit.html.twig', array('computer' => $computer));
+    	$form = $this->createFormBuilder($computer)
+    		->add('serial', 'text')
+    		->add('os', 'text')
+    		->getForm();
+
+    	if($request->getMethod() == 'POST')
+    	{
+    		$form->bindRequest($request);
+
+    		if($form->isValid())
+    		{
+
+    		}
+    	}
+
+		return $this->render('DefactoLicenseBundle:Computers:edit.html.twig', array(
+			'computer' => $computer,
+			'form'     => $form->createView()
+		));
 	}
 }
