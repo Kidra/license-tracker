@@ -1,0 +1,9 @@
+{% extends 'Templates:base.html.twig' %}
+
+{% block content %}
+	<h1>Computers</h1>
+	{% for computer in computers %}
+		<h2>{{ computer.serial }}</h2>
+		<p>{{ computer.os }}</p>
+	{% endfor %}
+{% endblock %}
