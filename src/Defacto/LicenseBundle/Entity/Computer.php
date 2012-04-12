@@ -3,6 +3,7 @@
 namespace Defacto\LicenseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -19,11 +20,13 @@ class Computer
 
 	/**
 	 * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank()
 	 */
 	protected $serial;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank()
 	 */
 	protected $os;
 
@@ -31,7 +34,7 @@ class Computer
 	{
 	    return $this->id;
 	}
-	
+
 	public function setId($id)
 	{
 	    $this->id = $id;
@@ -42,7 +45,7 @@ class Computer
 	{
 	    return $this->serial;
 	}
-	
+
 	public function setSerial($serial)
 	{
 	    $this->serial = $serial;
@@ -53,7 +56,7 @@ class Computer
 	{
 	    return $this->os;
 	}
-	
+
 	public function setOs($os)
 	{
 	    $this->os = $os;
