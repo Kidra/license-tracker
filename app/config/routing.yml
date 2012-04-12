@@ -3,6 +3,10 @@ DefactoLicenseBundle:
     type:     annotation
     prefix:   /
 
+computers:
+    resource: "@DefactoLicenseBundle/Controller/ComputersController.php"
+    type: annotation
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
