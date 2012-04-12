@@ -1,4 +1,8 @@
-<h1>Edit a computer</h1>
+{% if computer is null %}
+	<h1>Add a new computer</h1>
+{% else %}
+	<h1>Edit computer</h1>
+{% endif %}
 
 <form action="{{ path('computers_edit') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
