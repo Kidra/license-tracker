@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class License
 {
 	/**
+	 * @ORM\Id
 	 * @ORM\Column(type="integer")
 	 */
 	protected $id;
@@ -36,7 +37,7 @@ class License
 	{
 	    return $this->id;
 	}
-	
+
 	public function setId($id)
 	{
 	    $this->id = $id;
@@ -47,7 +48,7 @@ class License
 	{
 	    return $this->license_key;
 	}
-	
+
 	public function setLicense_key(License_Key $license_key)
 	{
 	    $this->license_key = $license_key;
@@ -58,7 +59,7 @@ class License
 	{
 	    return $this->computer;
 	}
-	
+
 	public function setComputer(Computer $computer)
 	{
 	    $this->computer = $computer;
@@ -69,7 +70,7 @@ class License
 	{
 	    return $this->date_installed;
 	}
-	
+
 	public function setDate_installed($date_installed)
 	{
 	    $this->date_installed = $date_installed;
