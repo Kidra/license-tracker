@@ -62,4 +62,9 @@ class Computer
 	    $this->os = $os;
 	    return $this;
 	}
+
+	public function __toString()
+	{
+		return $this->getSerial();
+	}
 }
